@@ -6,7 +6,7 @@ with codecs.open('README.md', 'r', 'utf8') as reader:
 
 
 with codecs.open('requirements.txt', 'r', 'utf8') as reader:
-    install_requires = list(map(lambda x: x.strip(), reader.readlines()))
+    install_requires = list(map(lambda x: x.strip() if not x.strip().startswith('#') else '', reader.readlines()))
 
 
 setup(
